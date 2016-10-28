@@ -1,0 +1,32 @@
+<ion-view view-title="Pergunta" cache-view="false">
+	<ion-content>
+		<div class="list list-pergunta">
+			<a class="item item-avatar" on-hold="actionPergunta(pergunta.uid)">
+				<img ng-if="pergunta.uimagem == null" src="img/user.png">
+				<img ng-if="pergunta.uimagem != null" ng-src="data:image/jpeg;base64,{{pergunta.uimagem}}">
+				<h2>{{pergunta.unome}}</h2>
+				<div class="item-text-wrap">
+					{{pergunta.pdescricao}}<br/>
+					<img ng-if="pergunta.panexo != null" ng-src="data:image/jpeg;base64,{{pergunta.panexo}}">
+				</div>
+			</a>
+
+			<a ng-if="respostas != 0" ng-repeat="resposta in respostas" class="item item-avatar" ng-class="{'item-resposta':resposta.rid==pergunta.presposta}" on-hold="actionResposta(resposta.uid,resposta.rid)">
+				<img ng-if="resposta.uimagem == null" src="img/user.png">
+				<img ng-if="resposta.uimagem != null" ng-src="data:image/jpeg;base64,{{resposta.uimagem}}">
+				<h2>{{resposta.unome}}</h2>
+				<div class="item-text-wrap">{{resposta.resposta}}</div>
+			</a>
+		</div>
+	</ion-content>
+
+	<ion-footer-bar class="item-input-inset">
+		<label class="item-input-wrapper">
+			<input type="text" ng-model="form.resposta" placeholder="Resposta">
+		</label>
+		<button class="button button-clear button-balanced" ng-click="responder()">
+			Enviar
+		</button>
+	</ion-footer-bar>
+
+</ion-view>

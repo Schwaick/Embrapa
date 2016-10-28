@@ -1,0 +1,25 @@
+<ion-view view-title="Ranking" cache-view="false">
+  <ion-content>
+    <div class="list">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" ng-model="pesquisar" placeholder="Pesquisar">
+      </label>
+      <a ng-repeat="usuario in ranking | filter:{'nome':pesquisar} track by $index" class="item item-avatar" ng-href="#/menu/perfil/{{usuario.id}}">
+        <img ng-if="usuario.imagem == null" src="img/user.png">
+        <img ng-if="usuario.imagem != null" ng-src="data:image/jpeg;base64,{{usuario.imagem}}">
+        <h2>{{usuario.nome}}</h2>
+        <p ng-if="usuario.soma <= 5">Estudante</p>
+        <p ng-if="usuario.soma > 5 && usuario.soma <= 10">Profissional</p>
+        <p ng-if="usuario.soma > 10">Professor</p>
+        <div>
+          <img ng-if="usuario.soma <= 5" class="ranking-img" src="img/bronze.png"></img>
+          <img ng-if="usuario.soma > 5 && usuario.soma <= 10" class="ranking-img" src="img/prata.png"></img>
+          <img ng-if="usuario.soma > 10" class="ranking-img" src="img/ouro.png"></img>
+          <span>{{usuario.soma}} ponto(s)</span>
+        </div>
+        <div class="item-text-center">{{$index+1}}º</div>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

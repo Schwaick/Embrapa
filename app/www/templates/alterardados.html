@@ -1,0 +1,45 @@
+<ion-view view-title="Alterar Dados" cache-view="false">
+	<ion-content padding="true">
+		<img ng-show="usuario.imagem == null" class="image-center low-space-bottom foto-perfil" src="img/user.png">
+		<img ng-show="usuario.imagem != null" class="image-center low-space-bottom foto-perfil" ng-src="data:image/jpeg;base64,{{usuario.imagem}}">
+
+		<form name="formulario" ng-submit="alterar(formulario)" novalidate>
+			<div class="list">
+				<label class="item">
+					<button type="button" class="button button-stable icon ion-filing" ng-click="action()">
+						Foto de perfil
+					</button>
+				</label>
+
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">Nome</span>
+					<input type="text" name="nome" ng-model="usuario.nome" required="required" minlength="3" maxlength="50">
+				</label>
+
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">Email</span>
+					<input type="email" name="email" ng-model="usuario.email" required="required" maxlength="100">
+				</label>
+
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">Celular</span>
+					<input type="text" name="celular" ng-model="usuario.celular" required="required" pattern="[0-9]{2}\s[0-9]{4,5}[-][0-9]{4}" readonly="readonly">
+				</label>
+
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">Resumo profissional</span>
+					<textarea rows="6" name="resumo" ng-model="usuario.resumo_profissional" required="required" minlength="4"></textarea>
+				</label>
+
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">Senha</span>
+					<input type="text" name="senha" ng-model="usuario.nsenha" minlength="6" placeholder="senha">
+				</label>
+
+				<button type="submit" class="button button-block button-balanced">
+					Alterar
+				</button>
+			</div>
+		</form>
+	</ion-content>
+</ion-view>

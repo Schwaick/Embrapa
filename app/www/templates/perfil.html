@@ -1,0 +1,33 @@
+<ion-view cache-view="false">
+  <ion-nav-title>
+    Perfil {{::titulo}}
+  </ion-nav-title>
+  <ion-content padding="true">
+    <img ng-if="usuario.imagem == null" class="image-center low-space-bottom foto-perfil" src="img/user.png">
+    <img ng-if="usuario.imagem != null" class="image-center low-space-bottom foto-perfil" ng-src="data:image/jpeg;base64,{{usuario.imagem}}">
+    
+    <div class="row">
+      <div class="col col-50">
+        <h3>Nome</h3>
+        <p>{{usuario.nome}}</p>
+      </div>
+      <div class="col col-50">
+        <h3>Celular</h3>
+        <p>{{usuario.celular}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h3>Email</h3>
+        <p>{{usuario.email}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h3>Descrição profissional</h3>
+        <p>{{usuario.resumo_profissional}}</p>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

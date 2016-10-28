@@ -1,0 +1,11 @@
+<ion-view view-title="Tópicos" cache-view="false">
+	<ion-content>
+		<div class="list">
+			<label class="item item-input">
+				<i class="icon ion-search placeholder-icon"></i>
+				<input type="text" ng-model="pesquisar" placeholder="Pesquisar tópico">
+			</label>
+			<a ng-repeat="topico in topicos | filter:pesquisar" class="item" href="#/menu/subtopico/{{topico.id}}/{{topico.nome}}">{{topico.nome}}</a>
+		</div>
+	</ion-content>
+</ion-view>

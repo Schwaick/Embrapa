@@ -1,0 +1,26 @@
+<ion-view view-title="Nova Pergunta">
+	<ion-content padding="true">
+		<form name="formulario" ng-submit="novaPergunta(formulario)" novalidate>
+			<div class="list">
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">Titulo</span>
+					<input type="text" name="titulo" ng-model="pergunta.titulo" placeholder="Pergunta resumida" required="required" minlength="5" maxlength="50">
+				</label>
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">Descrição</span>
+					<textarea rows="5" name="descricao" ng-model="pergunta.descricao" placeholder="Pergunta completa" required="required" minlength="5" maxlength="250"></textarea>
+				</label>
+				<label class="item">
+					<button type="button" class="button button-stable icon ion-filing" ng-click="action()">
+						Anexar imagem
+					</button>
+					<img class="image-center low-space-bottom low-space-top" ng-show="pergunta.imagem != null" ng-src="data:image/jpeg;base64,{{pergunta.imagem}}">
+				</label>
+
+				<button type="submit" class="button button-block button-balanced">
+					Criar
+				</button>
+			</div>
+		</form>
+	</ion-content>
+</ion-view>

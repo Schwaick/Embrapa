@@ -1,0 +1,24 @@
+<ion-view view-title="Minhas respostas" cache-view="false">
+	<ion-content>
+		<div ng-if="respostas != 0">
+			<div class="list list-respostas">
+				<label class="item item-input">
+					<i class="icon ion-search placeholder-icon"></i>
+					<input type="text" ng-model="pesquisar" placeholder="Pesquisar resposta">
+				</label>
+
+				<div ng-repeat="resposta in respostas | filter:{resposta:pesquisar}">
+					<a class="item item-avatar" ng-href="#/menu/pergunta/{{resposta.rperid}}">
+						<img ng-if="resposta.uimagem == null" src="img/user.png">
+						<img ng-if="resposta.uimagem != null" ng-src="data:image/jpeg;base64,{{resposta.uimagem}}">
+						<h2>{{resposta.unome}}</h2>
+						<div class="item-text-wrap">{{resposta.resposta}}</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div ng-if="respostas == 0">
+			<h4 class="text-center">Nenhuma resposta!</h4>
+		</div>
+	</ion-content>
+</ion-view>
