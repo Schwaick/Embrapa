@@ -4,6 +4,8 @@ require 'vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 //Classe contendo configurações do servidor
 class config {
 	static $urlServidor = "http://site.com";
+	static $emailServidor = "noreply@site.com";
+	static $aliasServidor = "noreply";
 
 	//Headers necessários pro app conseguir se comunicar com o servidor
 	static function setHeaders() {

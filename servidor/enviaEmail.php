@@ -37,10 +37,10 @@ if($row != false) {
 
 	$mail = config::getMail();
 
-	$mail->setFrom('TROCARPELOEMAIL', 'TROCARPELONOME');
+	$mail->setFrom(config::$emailServidor, config::$aliasServidor);
 	$mail->addAddress($row['email']);
 
-	$mail->Subject = 'Senha(TROCAR PELO TITULO)';
+	$mail->Subject = 'Senha(TROCAR PELO ASSUNTO)';
 	$mail->Body = $body;
 	$mail->isHTML(true);
 
